@@ -3,6 +3,7 @@
 import socket
 import TaobaoSpider
 import JingDongSpider
+from urllib import parse
 
 def create_socket(address, port):
     # creat socket and listen    
@@ -20,9 +21,7 @@ def accept_key(listen_socket):
     while True:
         sock, address = listen_socket.accept()
         print('Accept connection from {}'.format(address))
-        data = sock.recv(65536)
-        print(data)
-        data = data.decode()
+        data = sock.recv(65536).decode()
         handle_spider(sock, address, data)
 
 def handle_spider(sock, address, data):
@@ -41,20 +40,19 @@ def handle_spider(sock, address, data):
 def start_spider(sock, data):
     # start spider according to key
 
-    data = data.split(' ', data.count(' '))
+    data = data.split(' ', data.count(' ') + 1)
+    string = parse.unquote(data[1])[1:]
+    string = string.split(' ', data.count(' ') + 1)
 
-    mode = data[0]
-    key = data[1]
+    mode = string[0]
+    key = string[1]
 
-    print(mode)
-    print(key)
-
-    if (mode == 'taobao'):
+    if (mode == '淘宝'):
         obj_spider = TaobaoSpider.Taobao(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
-    elif(mode == 'jingdong'):
+    elif(mode == '京东'):
         obj_spider = JingDongSpider.Jingdong(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
