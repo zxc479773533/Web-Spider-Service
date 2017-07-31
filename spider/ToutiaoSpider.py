@@ -47,8 +47,3 @@ class Toutiao(object):
         fout = open('../data/Toutiaonews.json', 'r', encoding = 'utf-8')
         data = fout.read()
         return data
-
-obj_spider = Toutiao()
-obj_spider.getinfo()
-info = obj_spider.readinfo()
-print(info)
