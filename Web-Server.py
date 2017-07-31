@@ -1,11 +1,12 @@
 # coding:utf-8
 
 import socket
-import TaobaoSpider
-import JingDongSpider
-import DangdangSpider
-import ToutiaoSpider
-import SuningSpider
+from spider import TaobaoSpider
+from spider import JingDongSpider
+from spider import DangdangSpider
+from spider import ToutiaoSpider
+from spider import SuningSpider
+from spider import TianmaoSpider
 from urllib import parse
 
 def create_socket(address, port):
@@ -72,6 +73,11 @@ def start_spider(sock, data):
 
     elif (mode == '苏宁' or mode == '苏宁易购' or mode == 'suning' or mode == 'Suning'):
         obj_spider = SuningSpider.Suning(key)
+        obj_spider.getinfo()
+        info = obj_spider.readinfo()
+
+    elif (mode == '天猫' or mode == '天猫商城' or mode == 'tmall' or mode == 'Tmall' or mode == 'tianmao' or mode == 'Tianmao'):
+        obj_spider = TianmaoSpider.Tianmao(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     

@@ -20,7 +20,7 @@ class Toutiao(object):
 
         # output to a file
         count = 0
-        fout = open('data/Toutiaonews.json', 'w', encoding = 'utf-8')
+        fout = open('../data/Toutiaonews.json', 'w', encoding = 'utf-8')
 
         # get information
         for news in lists:
@@ -44,7 +44,7 @@ class Toutiao(object):
     def readinfo(self):
         # get info to a object
 
-        fout = open('data/Toutiaonews.json', 'r', encoding = 'utf-8')
+        fout = open('../data/Toutiaonews.json', 'r', encoding = 'utf-8')
         data = fout.read()
         return data
 

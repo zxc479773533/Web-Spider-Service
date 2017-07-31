@@ -22,7 +22,7 @@ class Jingdong(object):
 
         # output to a file
         count = 0
-        fout = open('data/Jingdongitems.json', 'w', encoding = 'utf-8')
+        fout = open('../data/Jingdongitems.json', 'w', encoding = 'utf-8')
 
         # get information
         for i in range(0, len(title)):
@@ -50,6 +50,6 @@ class Jingdong(object):
     def readinfo(self):
         # get info to a object
 
-        fout = open('data/Jingdongitems.json', 'r', encoding = 'utf-8')
+        fout = open('../data/Jingdongitems.json', 'r', encoding = 'utf-8')
         data = fout.read()
         return data
