@@ -48,24 +48,30 @@ def start_spider(sock, data):
     mode = string[0]
     key = string[1]
 
-    if (mode == '淘宝'):
+    print("Mode choose: " + mode + " key words: " + key)
+
+    if (mode == '淘宝' or mode == 'taobao' or mode == 'Taobao' or mode == 'TAOBAO' or mode == 'TB'):
         obj_spider = TaobaoSpider.Taobao(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
-    elif(mode == '京东'):
+    elif(mode == '京东' or mode == 'jingdong' or mode == 'Jingdong' or mode == 'JINGDONG' or  mode == 'JD'):
         obj_spider = JingDongSpider.Jingdong(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
 
-    elif(mode == '当当'):
+    elif(mode == '当当' or mode == 'dangdang' or mode == 'Dangdang' or mode == 'DANGDANG'):
         obj_spider = DangdangSpider.Dangdang(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
+    
+    else:
+        info = "<h1>Key words syntax error!</h1>"
     
     answer = 'HTTP/1.1 200 OK\n\n' + info
     sock.sendall(answer.encode())
 
 if __name__=="__main__":
+    print('Start web spider service')
     listener = create_socket('', 8000)
     accept_key(listener)
