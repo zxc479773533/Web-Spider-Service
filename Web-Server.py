@@ -4,6 +4,7 @@ import socket
 import TaobaoSpider
 import JingDongSpider
 import DangdangSpider
+import ToutiaoSpider
 from urllib import parse
 
 def create_socket(address, port):
@@ -55,13 +56,18 @@ def start_spider(sock, data):
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
-    elif(mode == '京东' or mode == 'jingdong' or mode == 'Jingdong' or mode == 'JINGDONG' or  mode == 'JD'):
+    elif (mode == '京东' or mode == 'jingdong' or mode == 'Jingdong' or mode == 'JINGDONG' or  mode == 'JD'):
         obj_spider = JingDongSpider.Jingdong(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
 
-    elif(mode == '当当' or mode == 'dangdang' or mode == 'Dangdang' or mode == 'DANGDANG'):
+    elif (mode == '当当' or mode == 'dangdang' or mode == 'Dangdang' or mode == 'DANGDANG'):
         obj_spider = DangdangSpider.Dangdang(key)
+        obj_spider.getinfo()
+        info = obj_spider.readinfo()
+
+    elif (mode = '今日头条' or '头条' or '头条新闻' or '新闻'):
+        obj_spider = ToutiaoSpider.Toutiao()
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
