@@ -15,7 +15,7 @@ class Jingdong(object):
 
         url = self.url
         data = requests.get(url).text.encode('latin1').decode('utf-8')
-        soup = BeautifulSoup(data,'lxml')
+        soup = BeautifulSoup(data, 'lxml')
         pictureandurl = soup.select("div.gl-i-wrap > div.p-img")[1:]
         title = soup.select("div.gl-i-wrap > div.p-name")[1:]
         price = soup.select("div.gl-i-wrap > div.p-price")[1:]

@@ -3,6 +3,7 @@
 import socket
 import TaobaoSpider
 import JingDongSpider
+import DangdangSpider
 from urllib import parse
 
 def create_socket(address, port):
@@ -54,6 +55,11 @@ def start_spider(sock, data):
     
     elif(mode == '京东'):
         obj_spider = JingDongSpider.Jingdong(key)
+        obj_spider.getinfo()
+        info = obj_spider.readinfo()
+
+    elif(mode == '当当'):
+        obj_spider = DangdangSpider.Dangdang(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
