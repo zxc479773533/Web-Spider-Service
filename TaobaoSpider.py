@@ -43,7 +43,7 @@ class Taobao(object):
     
             encodedjson = json.dumps(iteminfo)
             fout.write(encodedjson)
-            fout.write("\n\n")
+            fout.write('#\n\n')
 
         # end
         fout.close()

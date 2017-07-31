@@ -16,7 +16,7 @@ class Jingdong(object):
         url = self.url
         data = requests.get(url).text.encode('latin1').decode('utf-8')
         soup = BeautifulSoup(data,'lxml')
-        pictureandshop = soup.select("div.gl-i-wrap > div.p-img")[1:]
+        pictureandurl = soup.select("div.gl-i-wrap > div.p-img")[1:]
         title = soup.select("div.gl-i-wrap > div.p-name")[1:]
         price = soup.select("div.gl-i-wrap > div.p-price")[1:]
 
@@ -38,11 +38,11 @@ class Jingdong(object):
                 count -= 1
                 continue
             iteminfo['price'] = price[i].find('i').get_text()
-            iteminfo['url'] = pictureandshop[i].find('a').get('href')[2:]
+            iteminfo['url'] = pictureandurl[i].find('a').get('href')[2:]
     
             encodedjson = json.dumps(iteminfo)
             fout.write(encodedjson)
-            fout.write("\n\n")
+            fout.write('#\n\n')
 
         # end
         fout.close()
