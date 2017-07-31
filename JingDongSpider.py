@@ -25,7 +25,7 @@ class Jingdong(object):
         fout = open('data/Jingdongitems.json', 'w', encoding = 'utf-8')
 
         # get information
-        for i in range(0,len(title)):
+        for i in range(0, len(title)):
         
             iteminfo = {}
 

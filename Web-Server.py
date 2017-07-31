@@ -5,6 +5,7 @@ import TaobaoSpider
 import JingDongSpider
 import DangdangSpider
 import ToutiaoSpider
+import SuningSpider
 from urllib import parse
 
 def create_socket(address, port):
@@ -49,25 +50,28 @@ def start_spider(sock, data):
     mode = string[0]
     key = string[1]
 
-    print("Mode choose: " + mode + " key words: " + key)
-
-    if (mode == '淘宝' or mode == 'taobao' or mode == 'Taobao' or mode == 'TAOBAO' or mode == 'TB'):
+    if (mode == '淘宝' or mode == '淘宝网' or mode == 'taobao' or mode == 'Taobao' or mode == 'TB'):
         obj_spider = TaobaoSpider.Taobao(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
-    elif (mode == '京东' or mode == 'jingdong' or mode == 'Jingdong' or mode == 'JINGDONG' or  mode == 'JD'):
+    elif (mode == '京东' or mode == '京东商城' or mode == 'jingdong' or mode == 'Jingdong' or  mode == 'JD'):
         obj_spider = JingDongSpider.Jingdong(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
 
-    elif (mode == '当当' or mode == 'dangdang' or mode == 'Dangdang' or mode == 'DANGDANG'):
+    elif (mode == '当当' or mode == '当当网' or mode == 'dangdang' or mode == 'Dangdang'):
         obj_spider = DangdangSpider.Dangdang(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
 
-    elif (mode = '今日头条' or '头条' or '头条新闻' or '新闻'):
+    elif (mode == '今日头条' or mode == '头条'  or mode == '头条新闻' or mode == '新闻'):
         obj_spider = ToutiaoSpider.Toutiao()
+        obj_spider.getinfo()
+        info = obj_spider.readinfo()
+
+    elif (mode == '苏宁' or mode == '苏宁易购' or mode == 'suning' or mode == 'Suning'):
+        obj_spider = SuningSpider.Suning(key)
         obj_spider.getinfo()
         info = obj_spider.readinfo()
     
