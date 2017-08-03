@@ -2,24 +2,15 @@
 
 A simple web spider service based in HTTP, capturing information in Taobao, Tianmao, Jingdong, Dangdang, Suning and Today's Focus news.
 
-***Unique Studio Hackweek project***
-
-***XiaoDu, a funny chat robot equiped with shopping web-spider, which has three mode to choose.***
-
-***Android Client: @ Enble DU***
-
-***Backstage: @ yukiiris***
-
-***Design: @ Zhu Li***
-
-***Spider Service: @ Yue Pan***
-
-***Development Language: JAVA, Python***
-
-***Platform: QQ for Android and IOS***
-
-***Attribute Set Platform: Android***
-
+>***Unique Studio Hackweek project***<br/><br/>
+***XiaoDu, a funny chat robot equiped with shopping web-spider, which has three mode to choose.***<br/>
+***Android Client: @ Enble DU***<br/>
+***Backstage: @ yukiiris***<br/>
+***Design: @ Zhu Li***<br/>
+***Spider Service: @ Yue Pan***<br/>
+***Development Language: JAVA, Python***<br/>
+***Platform: QQ for Android and IOS***<br/>
+***Attribute Set Platform: Android***<br/>
 ***Finish day: 2017.8.3***
 
 GitHub for Andriod: [HackWeekProjectAndroid](https://github.com/D384509085/HackWeekProjectAndroid)
