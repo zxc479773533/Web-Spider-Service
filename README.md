@@ -14,13 +14,13 @@ GitHub for Backstage: [XiaoDu](https://github.com/yukiiris/XiaoDu)
 
 ### Port
 
-Default port: 8080
+Default port: 8888
 
 You can set port in `Web-Server.py line:109`
 
 ### URL 
 
-`your-server-address:8080/mode + key`
+`your-server-address:8888/mode + key`
 
 you can deploy the server in your machine, and when it receive a HTTP GET request, then it will analyze the url and start spider.
 
