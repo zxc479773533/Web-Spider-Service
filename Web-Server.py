@@ -48,7 +48,7 @@ def start_spider(sock, data):
     string = parse.unquote(data[1])[1:]
     string = string.split(' ', data.count(' ') + 1)
     print(string)
-    
+
     mode = string[0]
     if len(string) != 1:
         key = string[1]
@@ -106,5 +106,5 @@ def start_spider(sock, data):
 
 if __name__=="__main__":
     print('Start web spider service')
-    listener = create_socket('', 8080)
+    listener = create_socket('', 8888)
     accept_key(listener)
