@@ -34,9 +34,9 @@ Then you can analyze the reply json and send the information to client.
 
 Thanks Zhu Li for designing the UI.
 
-Thanks Du Enbo for Writting Android Client.
+Thanks Du Enbo for writting Android Client.
 
-Thanks Bao Rong for Writting backstage.
+Thanks Bao Rong for writting backstage.
 
 Thanks our effort in 2017 Unique Studio Summer Camp Hackweek.
 
