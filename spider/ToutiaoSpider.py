@@ -32,7 +32,7 @@ class Toutiao(object):
             newsinfo['num'] = count
             newsinfo['title'] = news['title']
             # newsinfo['picture'] = news['image_url']
-            newsinfo['url'] = self.root_url + news['url']
+            newsinfo['url'] = self.root_url + news['display_url']
 
             encodedjson = json.dumps(newsinfo)
             fout.write(encodedjson)
