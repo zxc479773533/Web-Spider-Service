@@ -37,7 +37,7 @@ class Tianmao(object):
             count += 1
             
             iteminfo['num'] = count
-            ##iteminfo['picture'] = pictureandurl[i].find('img').get('src')[2:]
+            # iteminfo['picture'] = pictureandurl[i].find('img').get('src')[2:]
             iteminfo['title'] = title[i].find('a').get('title')
             iteminfo['price'] = price[i].find('em').get_text()
             iteminfo['shop'] = shop[i].find('a').get_text()
@@ -57,5 +57,5 @@ class Tianmao(object):
         fout = open('data/Tianmaoitems.json', 'r', encoding = 'utf-8')
         data = fout.read()
         if len(data) == 0:
-            data = "404 not found"
+            data = "<h1>404 Not Found!</h1>"
         return data

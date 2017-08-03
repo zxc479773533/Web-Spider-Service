@@ -32,7 +32,7 @@ class Jingdong(object):
             count += 1
 
             iteminfo['num'] = count
-            #iteminfo['picture'] = pictureandshop[i].find('img').get('src')[2:]
+            # iteminfo['picture'] = pictureandshop[i].find('img').get('src')[2:]
             iteminfo['title'] = title[i].find('em').get_text()
             if (price[i].find('i') is None):
                 count -= 1

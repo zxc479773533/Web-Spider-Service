@@ -36,7 +36,7 @@ class Taobao(object):
                 count += 1
 
                 iteminfo['num'] = count
-                iteminfo['picture'] = item['pic_url'][2:]
+                # iteminfo['picture'] = item['pic_url'][2:]
                 iteminfo['title'] = item['raw_title']
                 iteminfo['shop'] = item['nick']
                 iteminfo['price'] = item['view_price']

@@ -30,7 +30,7 @@ class Suning(object):
             count += 1
 
             iteminfo['num'] = count
-            iteminfo['picture'] = items[i].find('img').get('src2')[2:]
+            # iteminfo['picture'] = items[i].find('img').get('src2')[2:]
             iteminfo['title'] = items[i].find('a').get('title')
             iteminfo['url'] = items[i].find('a').get('href')[2:]
 

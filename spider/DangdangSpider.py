@@ -31,9 +31,10 @@ class Dangdang(object):
             count += 1
 
             iteminfo['num'] = count
-            iteminfo['picture'] = head[i].find('img').get('data-original')
+            # iteminfo['picture'] = head[i].find('img').get('data-original')
             iteminfo['title'] = head[i].get('title')
             iteminfo['price'] = price[i].find('span').get_text()[1:]
+            iteminfo['url'] = head[1].get('href')
 
             encodedjson = json.dumps(iteminfo)
             fout.write(encodedjson)
