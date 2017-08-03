@@ -21,7 +21,7 @@ class Dangdang(object):
 
         # output to a file
         count = 0
-        fout = open('../data/Dangdangitems.json', 'w', encoding = 'utf-8')
+        fout = open('data/Dangdangitems.json', 'w', encoding = 'utf-8')
 
         # get information
         for i in range(0, min(len(head), len(price))):
@@ -45,6 +45,6 @@ class Dangdang(object):
     def readinfo(self):
         # get info to a object
 
-        fout = open('../data/Dangdangitems.json', 'r', encoding = 'utf-8')
+        fout = open('data/Dangdangitems.json', 'r', encoding = 'utf-8')
         data = fout.read()
         return data

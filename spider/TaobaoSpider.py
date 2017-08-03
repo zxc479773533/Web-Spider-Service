@@ -23,7 +23,7 @@ class Taobao(object):
 
         # output to a file
         count = 0
-        fout = open('../data/Taobaoitems.json', 'w', encoding = 'utf-8')
+        fout = open('data/Taobaoitems.json', 'w', encoding = 'utf-8')
 
         # get information
         for item in lists[1:]:
@@ -51,6 +51,6 @@ class Taobao(object):
     def readinfo(self):
         # get info to a object
 
-        fout = open('../data/Taobaoitems.json', 'r', encoding = 'utf-8')
+        fout = open('data/Taobaoitems.json', 'r', encoding = 'utf-8')
         data = fout.read()
         return data
