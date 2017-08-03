@@ -49,22 +49,32 @@ def start_spider(sock, data):
     string = string.split(' ', data.count(' ') + 1)
 
     mode = string[0]
-    key = string[1]
+    if len(string) != 1:
+        key = string[1]
 
     if (mode == '淘宝' or mode == '淘宝网' or mode == 'taobao' or mode == 'Taobao' or mode == 'TB'):
-        obj_spider = TaobaoSpider.Taobao(key)
-        obj_spider.getinfo()
-        info = obj_spider.readinfo()
-    
+        if len(string) == 1:
+            info = "<h1>404 Not Found!</h1>"
+        else:
+            obj_spider = TaobaoSpider.Taobao(key)
+            obj_spider.getinfo()
+            info = obj_spider.readinfo()
+
     elif (mode == '京东' or mode == '京东商城' or mode == 'jingdong' or mode == 'Jingdong' or  mode == 'JD'):
-        obj_spider = JingDongSpider.Jingdong(key)
-        obj_spider.getinfo()
-        info = obj_spider.readinfo()
+        if len(string) == 1:
+            info = "<h1>404 Not Found!</h1>"
+        else:
+            obj_spider = JingDongSpider.Jingdong(key)
+            obj_spider.getinfo()
+            info = obj_spider.readinfo()
 
     elif (mode == '当当' or mode == '当当网' or mode == 'dangdang' or mode == 'Dangdang'):
-        obj_spider = DangdangSpider.Dangdang(key)
-        obj_spider.getinfo()
-        info = obj_spider.readinfo()
+        if len(string) == 1:
+            info = "<h1>404 Not Found!</h1>"
+        else:
+            obj_spider = DangdangSpider.Dangdang(key)
+            obj_spider.getinfo()
+            info = obj_spider.readinfo()
 
     elif (mode == '今日头条' or mode == '头条'  or mode == '头条新闻' or mode == '新闻'):
         obj_spider = ToutiaoSpider.Toutiao()
@@ -72,17 +82,23 @@ def start_spider(sock, data):
         info = obj_spider.readinfo()
 
     elif (mode == '苏宁' or mode == '苏宁易购' or mode == 'suning' or mode == 'Suning'):
-        obj_spider = SuningSpider.Suning(key)
-        obj_spider.getinfo()
-        info = obj_spider.readinfo()
+        if len(string) == 1:
+            info = "<h1>404 Not Found!</h1>"
+        else:
+            obj_spider = SuningSpider.Suning(key)
+            obj_spider.getinfo()
+            info = obj_spider.readinfo()
 
     elif (mode == '天猫' or mode == '天猫商城' or mode == 'tmall' or mode == 'Tmall' or mode == 'tianmao' or mode == 'Tianmao'):
-        obj_spider = TianmaoSpider.Tianmao(key)
-        obj_spider.getinfo()
-        info = obj_spider.readinfo()
+        if len(string) == 1:
+            info = "<h1>404 Not Found!</h1>"
+        else:
+            obj_spider = TianmaoSpider.Tianmao(key)
+            obj_spider.getinfo()
+            info = obj_spider.readinfo()
     
     else:
-        info = "<h1>Key words syntax error!</h1>"
+        info = "<h1>404 Not Found!</h1>"
     
     answer = 'HTTP/1.1 200 OK\n\n' + info
     sock.sendall(answer.encode())

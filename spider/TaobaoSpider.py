@@ -19,32 +19,38 @@ class Taobao(object):
         items = items.pop().strip()
         items = items[0 : -1]
         items = json.loads(items)
-        lists = items['mods']['itemlist']['data']['auctions']
 
         # output to a file
         count = 0
         fout = open('data/Taobaoitems.json', 'w', encoding = 'utf-8')
 
-        # get information
-        for item in lists[1:]:
+        try:
+
+            # get information
+            lists = items['mods']['itemlist']['data']['auctions']
+
+            for item in lists[1:]:
         
-            iteminfo = {}
+                iteminfo = {}
 
-            count += 1
+                count += 1
 
-            iteminfo['num'] = count
-            iteminfo['picture'] = item['pic_url'][2:]
-            iteminfo['title'] = item['raw_title']
-            iteminfo['shop'] = item['nick']
-            iteminfo['price'] = item['view_price']
-            iteminfo['location'] = item['item_loc']
-            iteminfo['sales'] = item['view_sales']
-            iteminfo['url'] = item['comment_url'][2:]
+                iteminfo['num'] = count
+                iteminfo['picture'] = item['pic_url'][2:]
+                iteminfo['title'] = item['raw_title']
+                iteminfo['shop'] = item['nick']
+                iteminfo['price'] = item['view_price']
+                iteminfo['location'] = item['item_loc']
+                iteminfo['sales'] = item['view_sales']
+                iteminfo['url'] = item['comment_url'][2:]
     
-            encodedjson = json.dumps(iteminfo)
-            fout.write(encodedjson)
-            fout.write('#\n\n')
+                encodedjson = json.dumps(iteminfo)
+                fout.write(encodedjson)
+                fout.write('#\n\n')
 
+        except:
+            fout.write("<h1>404 Not Found!</h1>")
+            
         # end
         fout.close()
 
